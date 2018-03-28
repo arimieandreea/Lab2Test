@@ -23,12 +23,66 @@ public class LaboratoriesControllerTest extends TestCase {
     public void tearDown() throws Exception {
     }
 
+
+    public void testSaveStudent1() throws Exception {
+
+        //adding an existing student
+        Student s1 = new Student("aaaa1111", "Arimie Andreea", 932);
+        boolean r1 = ctrl.saveStudent(s1);
+        assertEquals(r1, false);
+    }
+
+
+    public void testSaveStudent2() throws Exception {
+
+        //group
+        Student s2=new Student("aaaa2222","Arimie Andreea",1090);
+        boolean r2=ctrl.saveStudent(s2);
+        assertEquals(r2,false);
+    }
+
+    public void testSaveStudent3() throws Exception {
+
+        //regNr
+        Student s3=new Student("aaaa222","Arimie Andreea",3);
+        boolean r3=ctrl.saveStudent(s3);
+        assertEquals(r3,false);
+
+    }
+
+    public void testSaveStudent4() throws Exception {
+
+        //name(length!=2)
+        Student s4=new Student("aaaa3333","Arimie ",3);
+        boolean r4=ctrl.saveStudent(s4);
+        assertEquals(r4,false);
+
+    }
+
+    public void testSaveStudent5() throws Exception {
+
+        //regNr empty
+        Student s5=new Student("","Arimie ",3);
+        boolean r5=ctrl.saveStudent(s5);
+        assertEquals(r5,false);
+
+
+    }
+
+
+
+
+
+
+
+
+
     public void testSaveStudent() throws Exception {
 
         //adding an existing student
         Student s1=new Student("aaaa1111","Arimie Andreea",932);
         boolean r1=ctrl.saveStudent(s1);
-        assertEquals(r1,false);
+        assertEquals(r1,true);
 
         //group
         Student s2=new Student("aaaa2222","Arimie Andreea",1090);
