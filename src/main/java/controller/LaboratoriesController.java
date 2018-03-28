@@ -58,15 +58,15 @@ public class LaboratoriesController {
 
     public boolean addGrade(String student, String labNumber, float grade)
             throws NumberFormatException, IOException, ParseException {
-        if(this.studentPersistence.existStudent(student)==true){
-            System.out.println("Does not exist this student");
-            return false;
-        }
-
-        if(this.laboratoryPersistence.existLab(Integer.parseInt(labNumber))==true){
-            System.out.println("Does not exist this lab");
-            return false;
-        }
+//        if(this.studentPersistence.existStudent(student)==true){
+//            System.out.println("Does not exist this student");
+//            return false;
+//        }
+//
+//        if(this.laboratoryPersistence.existLab(Integer.parseInt(labNumber))==true){
+//            System.out.println("Does not exist this lab");
+//            return false;
+//        }
 
         if (Validator.validateGrade(grade)) {
             this.laboratoryPersistence.addGrade(student, labNumber, grade);
