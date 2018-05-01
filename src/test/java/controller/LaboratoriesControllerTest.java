@@ -180,7 +180,7 @@ public class LaboratoriesControllerTest extends TestCase {
         ctrl.addGrade("yyyy9999","3",8);
         passedStudents1=ctrl.passedStudents();
         boolean r2=passedStudents1.contains(s1);
-        assertEquals(r2,true);
+        assertEquals(r2,false);
 
     }
 
