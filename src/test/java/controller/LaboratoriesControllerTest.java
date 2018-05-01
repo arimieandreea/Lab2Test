@@ -144,6 +144,22 @@ public class LaboratoriesControllerTest extends TestCase {
         assertEquals(r2,false);
     }
 
+    //nrLab<1
+    public void testSaveLaboratory3() throws Exception{
+
+        Laboratory l3=new Laboratory(-5, "30/04/2018" ,4 ,"nnop1998");
+        boolean r3=ctrl.saveLaboratory(l3);
+        assertEquals(r3,false);
+    }
+
+    //pbNr
+    public void testSaveLaboratory4() throws Exception{
+
+        Laboratory l4=new Laboratory(5, "29/03/2018" ,19 ,"nnop1998");
+        boolean r4=ctrl.saveLaboratory(l4);
+        assertEquals(r4,false);
+    }
+
 
 
 
