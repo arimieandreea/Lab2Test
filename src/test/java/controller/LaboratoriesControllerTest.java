@@ -172,12 +172,14 @@ public class LaboratoriesControllerTest extends TestCase {
 
     public void testAddGrade2() throws  Exception{
         List<Student> passedStudents=new ArrayList<Student>();
+        List<Student> passedStudents1=new ArrayList<Student>();
         passedStudents=ctrl.passedStudents();
         Student s1=new Student("yyyy9999","Vancea Vlad",989);
         boolean r1=passedStudents.contains(s1);
         assertEquals(r1,false);
         ctrl.addGrade("yyyy9999","3",8);
-        boolean r2=passedStudents.contains(s1);
+        passedStudents1=ctrl.passedStudents();
+        boolean r2=passedStudents1.contains(s1);
         assertEquals(r2,true);
 
     }
