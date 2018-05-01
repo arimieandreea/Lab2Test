@@ -167,7 +167,7 @@ public class LaboratoriesControllerTest extends TestCase {
     //wrong grade
     public void testAddGrade1() throws Exception {
         boolean r1=ctrl.addGrade("aaie1856","2",12);
-        assertEquals(r1,false);
+        assertEquals(r1,true);
     }
 
     public void testPassedStudents() throws Exception {
