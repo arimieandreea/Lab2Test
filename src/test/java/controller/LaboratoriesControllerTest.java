@@ -176,6 +176,10 @@ public class LaboratoriesControllerTest extends TestCase {
         Student s1=new Student("yyyy9999","Vancea Vlad",989);
         boolean r1=passedStudents.contains(s1);
         assertEquals(r1,false);
+        ctrl.addGrade("yyyy9999","3",8);
+        boolean r2=passedStudents.contains(s1);
+        assertEquals(r2,true);
+
     }
 
     public void testPassedStudents() throws Exception {
