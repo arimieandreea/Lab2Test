@@ -180,6 +180,7 @@ public class LaboratoriesControllerTest extends TestCase {
         ctrl.addGrade("yyyy9999","3",8);
         passedStudents1=ctrl.passedStudents();
         boolean r2=passedStudents1.contains(s1);
+        //failed(should be true)
         assertEquals(r2,false);
 
     }
@@ -212,11 +213,71 @@ public class LaboratoriesControllerTest extends TestCase {
         boolean r5=passedStudents.contains(s5);
         assertEquals(r4,false);
 
+    }
+
+    public void testIntegrationBigBang() throws  Exception{
+        //adding an existing student
+        Student s1=new Student("aaaa1111","Arimie Andreea",932);
+        boolean r1=ctrl.saveStudent(s1);
+        assertEquals(r1,true);
+
+        //group
+        Student s2=new Student("aaaa2222","Arimie Andreea",1090);
+        boolean r2=ctrl.saveStudent(s2);
+        assertEquals(r2,false);
+
+        //regNr
+        Student s3=new Student("aaaa222","Arimie Andreea",3);
+        boolean r3=ctrl.saveStudent(s3);
+        assertEquals(r3,false);
+
+        //name(length!=2)
+        Student s4=new Student("aaaa3333","Arimie ",3);
+        boolean r4=ctrl.saveStudent(s4);
+        assertEquals(r4,false);
+
+        //regNr empty
+        Student s5=new Student("","Arimie ",3);
+        boolean r5=ctrl.saveStudent(s5);
+        assertEquals(r5,false);
+
+        Laboratory l1=new Laboratory(4, "28/04/2018" ,4 ,"nnop1998");
+        boolean rl1=ctrl.saveLaboratory(l1);
+        assertEquals(rl1,false);
 
 
+        List<Student> passedStudents=new ArrayList<Student>();
+        passedStudents=ctrl.passedStudents();
+        Student sp1=new Student("yyyy9999","Vancea Vlad",989);
+        Student sp2=new Student("aaie1856","as nb",932);
+        Student sp3=new Student("asdf1234","as we",932);
+        Student sp4=new Student("nnop1998","Monica Iovan",945);
+        Student sp5=new Student("nnop0000","Monica Der",930);
 
+
+        //student having grade<5
+        boolean rp1=passedStudents.contains(sp1);
+        assertEquals(rp1,false);
+
+        boolean rp2=passedStudents.contains(sp2);
+        assertEquals(rp2,true);
+
+        boolean rp3=passedStudents.contains(sp3);
+        assertEquals(rp3,true);
+
+        //when student has not participated to the lab=>false
+        boolean rp4=passedStudents.contains(sp4);
+        assertEquals(rp4,false);
+
+        //when student is not in our database
+        boolean rp5=passedStudents.contains(sp5);
+        assertEquals(rp5,false);
 
 
     }
+
+
+
+
 
 }
