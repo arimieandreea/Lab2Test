@@ -137,6 +137,15 @@ public class LaboratoriesControllerTest extends TestCase {
         assertEquals(r1,false);
     }
 
+    //date of the lab is wrong
+    public void testSaveLaboratory2() throws Exception{
+        Laboratory l2=new Laboratory(5, "29/03/2017" ,4 ,"nnop1998");
+        boolean r2=ctrl.saveLaboratory(l2);
+        assertEquals(r2,false);
+    }
+
+
+
 
 
 
