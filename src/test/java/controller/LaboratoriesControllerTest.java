@@ -129,6 +129,17 @@ public class LaboratoriesControllerTest extends TestCase {
 
     }
 
+
+    //adding an existing lab (with the same number)
+    public void testSaveLaboratory1() throws Exception{
+        Laboratory l1=new Laboratory(4, "28/04/2018" ,4 ,"nnop1998");
+        boolean r1=ctrl.saveLaboratory(l1);
+        assertEquals(r1,false);
+    }
+
+
+
+
     public void testAddGrade() throws Exception {
 
     }
