@@ -363,7 +363,7 @@ public class LaboratoriesControllerTest extends TestCase {
 
         //when student is not in our database
         boolean rp5=passedStudents.contains(sp5);
-        assertEquals(rp5,true);
+        assertEquals(rp5,false);
     }
 
 
